@@ -1,0 +1,24 @@
+#!/bin/sh
+
+cd ~
+
+export _JAVA_AWT_WM_NONREPARENTING=1
+export XCURSOR_SIZE=24
+
+#Needed for Cura v5
+export QT_QPA_PLATFORM=xcb
+export LD_PRELOAD=/usr/lib64/libstdc++.so.6
+
+#For Nvidia GPUs
+export LIBVA_DRIVER_NAME=nvidia
+export XDG_SESSION_TYPE=wayland
+export GBM_BACKEND=nvidia-drm
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export WLR_NO_HARDWARE_CURSORS=1
+
+
+exec Hyprland
+
+#kills the daemon that handles wallpapers
+#unsure if this is necessary
+swww kill
