@@ -1,0 +1,10 @@
+
+(defwidget bat []
+  (box :orientation "v"
+    (label :class "bat" 
+      :text battery-capacity
+    )
+  )
+)
+
+(defpoll battery-capacity :interval "1s" "scripts/battery percent")

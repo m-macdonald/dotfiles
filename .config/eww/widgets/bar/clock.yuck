@@ -1,0 +1,13 @@
+
+(defwidget clock []
+  (eventbox :onclick ""
+    (box :orientation "h"
+      (label :text hour)
+      (label :text ":")
+      (label :text minute)
+    )
+  )
+)
+
+(defpoll hour :interval "1s" "date '+%H'")
+(defpoll minute :interval "1s" "date '+%M'")

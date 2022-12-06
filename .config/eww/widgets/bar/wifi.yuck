@@ -1,0 +1,32 @@
+
+(defwidget animated-wifi []
+  (eventbox :onhover "${eww} update show-wifi=true"
+    :onhoverlost "${eww} update show-wifi=false"
+    :hexpand "false"
+    :vexpand "false"
+    (box :orientation "v"
+      :space-evenly "false"
+      (label :text "Wifi")
+      (revealer :reveal show-wifi
+        :transition "slidedown"
+        :duration "1000ms"
+        (box :orientation "v"
+          :space-evenly false
+          (label :text wifi-name)  
+        )      
+      )
+    )
+  )
+)
+
+(defvar show-wifi false)
+
+(defwidget wifi []
+  (box :orientation "v"
+    (label :class "wifi"
+      :text wifi-name
+    )
+  )
+)
+
+(defpoll wifi-name :interval "1s" "scripts/wifi connection_name")

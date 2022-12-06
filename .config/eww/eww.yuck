@@ -1,15 +1,37 @@
+(include "widgets/bar/clock.yuck")
+(include "widgets/bar/wifi.yuck")
+(include "widgets/bar/battery.yuck")
+
+
+(defvar eww "/usr/bin/eww -c $HOME/.config/eww")
+
 (defwindow toolbar
-	:monitor 1
-	:geometry (geometry :x "0%"
+	:monitor 0
+	:geometry (geometry :x "0"
 				:y "20px"
 				:width "90%"
 				:height "30px"
 				:anchor "top center")
 	:stacking "fg"
-	:reserve (struts :distance "40px" :side "top")
+	:reserve (struts :distance "35px" :side "top")
 	:windowtype "dock"
 	:wm-ignore false
 	:focusable false
 	:exclusive true
-"Example Content"
+(rightbar)
 )
+
+(defwidget rightbar []
+  (box :space-evenly "false"
+    :class "toolbar-container"
+    (bat)
+    (animated-wifi)
+    (clock)
+  )
+)
+
+
+
+
+
+

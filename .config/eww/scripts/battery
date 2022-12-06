@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+bat=/sys/class/power_supply/BAT0
+per="$(cat "$bat/capacity")"
+
+percent() {
+  echo "${per}%"
+}
+
+"$@"
