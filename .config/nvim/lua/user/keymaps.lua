@@ -2,7 +2,7 @@ local opts = { noremap = true, silent = true }
 
 local term_opts = { silent = true }
 
-local keymap = vim.api.nvim.set_keymap
+local keymap = vim.api.nvim_set_keymap
 
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
@@ -23,15 +23,15 @@ keymap("n", "<C-Left>", ":vertical resize -2<cr>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<cr>", opts)
 
 --Navigate buffers
-keymap("n", "<S-t>", ":bnext<cr>")
-keymap("n", "<S-r>", ":bprevious<cr>")
+keymap("n", "<S-t>", ":bnext<cr>", opts)
+keymap("n", "<S-r>", ":bprevious<cr>", opts)
 
 --Exit insert mode
-keymap("i", "jk", "<esc>")
+keymap("i", "jk", "<esc>", opts)
 
 --Stay in visual mode when tabbing
-keymap("v", "<S-Tab>", "<gv")
-keymap("v", "<Tab>", ">gv")
+keymap("v", "<S-Tab>", "<gv", opts)
+keymap("v", "<Tab>", ">gv", opts)
 
 --VISUAL MODE
 --Move text up or down
