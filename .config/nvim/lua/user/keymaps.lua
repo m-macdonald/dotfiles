@@ -17,8 +17,8 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<leader>e", ":Lex 40<cr>", opts)
 
 --Resize with arrows
-keymap("n", "<C-Up>", ":resize +2<cr>", opts)
-keymap("n", "<C-Down>", ":resize -2<cr>", opts)
+keymap("n", "<C-Up>", ":resize -2<cr>", opts)
+keymap("n", "<C-Down>", ":resize +2<cr>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<cr>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<cr>", opts)
 
@@ -40,4 +40,5 @@ keymap("v", "<A-j>", ":m .+1<cr>==", opts)
 keymap("v", "<A-k>", ":m .-2<cr>==", opts)
 keymap("v", "p", '"_dP', opts)
 
-
+--Establish keybind to open netrw
+keymap("n", "fv", ':Ex', opts)
