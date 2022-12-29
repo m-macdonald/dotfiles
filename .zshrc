@@ -11,6 +11,13 @@ export GPG_TTY=$(tty)
 source /usr/share/nvm/init-nvm.sh
 alias config='git --git-dir=$HOME/.cfg --work-tree=$HOME'
 
+# Key bindings to reenable Home, End, and delete
+# Unsure if needed on desktop
+bindkey "^[[H" beginning-of-line
+bindkey "^[[F" end-of-line
+bindkey "^[[3~" delete-char
+
+# Configure zim
 ZIM_HOME=$HOME/.zim
 ZDOTDIR=$ZIM_HOME
 
@@ -24,3 +31,6 @@ if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
 fi
 
 source ${ZIM_HOME}/init.zsh
+
+export VOLTA_HOME=$HOME/.volta
+export PATH=$PATH:$VOLTA_HOME/bin
