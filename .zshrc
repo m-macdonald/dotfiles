@@ -33,3 +33,8 @@ source ${ZIM_HOME}/init.zsh
 
 export VOLTA_HOME=$HOME/.volta
 export PATH=$PATH:$VOLTA_HOME/bin
+
+# Ensure that neither screen nor tmux are already running, and execute tmux
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux
+fi
